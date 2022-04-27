@@ -128,10 +128,30 @@ int vector3dMagnitude(PtVector3d vec, double *magnitude)
 
     return VECTOR3D_OK;
 }
-/*
+
+//NIVEL 5
 PtVector3d vector3dNormalize(PtVector3d vec)
 {
-    
+    if(vec == NULL)
+    {
+        return NULL;
+    }
+
+    double magnitude = 0;
+    vector3dMagnitude(vec, &magnitude);
+
+    if(magnitude == 0)
+    {
+        return vector3dCreate(0, 0, 0);
+    }
+    else
+    {
+        PtVector3d c = vector3dCreate(vec->x, vec->y, vec->z);
+        PtVector3d norm = vector3dMultiplyByScalar(c, 1/magnitude);
+
+        free(c);
+        return norm;
+    }
 }
-*/
+
 
