@@ -11,6 +11,7 @@ int main() {
     }
 
     vector3dPrint(v1, true);
+    free(v1);
     
     return EXIT_SUCCESS;
 }

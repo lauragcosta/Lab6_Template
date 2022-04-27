@@ -4,16 +4,43 @@
 #include <stdbool.h>
 #include <math.h>
 
-/* TODO: -- define data structure here -- */ 
+//NIVEL 1
+typedef struct vector3d 
+{
+    double x, y, z;
+} vector3d;
 
-PtVector3d  vector3dCreate(double x, double y, double z) {
-    return NULL;
+PtVector3d  vector3dCreate(double x, double y, double z)
+{
+    PtVector3d p = (PtVector3d) malloc(sizeof(vector3d));
+
+    if (p == NULL) return NULL;
+
+    p->x = x;
+    p->y=y;
+    p->z=z;
+
+    return p;
 }
 
-void vector3dPrint(PtVector3d vec, bool lineBreakAfter) {
-    
+void vector3dPrint(PtVector3d vec, bool lineBreakAfter)
+{
+    if(vec == NULL)
+    {
+        printf("<NULL>");
+    }
+    else
+    {
+        printf("\n<%.2lf, %.2lf, %.2lf>\n", vec->x, vec->y, vec->z);
+    }
+    if(lineBreakAfter)
+    {
+        printf("\n");
+    }
 }
 
+//NIVEL 2
+/*
 int vector3dX(PtVector3d vec, double *x) {
     
     return VECTOR3D_OK;
@@ -50,4 +77,4 @@ int vector3dMagnitude(PtVector3d vec, double *magnitude) {
 PtVector3d vector3dNormalize(PtVector3d vec) {
     return NULL;
 }
-
+*/
